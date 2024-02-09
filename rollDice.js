@@ -8,6 +8,12 @@ function rollDice(input) {
     }
 
     const [numOfDices, numOfSides] = input.split('d').map(Number);
+    if (numOfDices < 1 || numOfDices > 100) {
+        throw new Error("Invalid input. First number must be an integer between 1 and 100");
+    }
+    if (numOfSides < 2 || numOfSides > 100) {
+        throw new Error("Invalid input. Second number must be an integer between 2 and 100");
+    }
     let total = 0;
     for (let i = 0; i < numOfDices; i++) {
         total += Math.floor(Math.random() * numOfSides) + 1;
